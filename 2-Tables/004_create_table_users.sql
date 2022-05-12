@@ -27,8 +27,8 @@ delimiter //
 create trigger Insert_Trigger_User  BEFORE INSERT on Users
 FOR EACH ROW
 BEGIN
-  SET new.Creation_Date := (SELECT UTC_TIMESTAMP());
-  SET new.Last_Edit_Date := (SELECT UTC_TIMESTAMP());
+  SET new.Creation_Date := (SELECT Now());
+  SET new.Last_Edit_Date := (SELECT Now());
 END
 //
 
@@ -36,7 +36,7 @@ delimiter //
 create trigger Update_Trigger_User  BEFORE UPDATE on Users
 FOR EACH ROW
 BEGIN
-  SET new.Last_Edit_Date := (SELECT UTC_TIMESTAMP());
+  SET new.Last_Edit_Date := (SELECT Now());
 END
 //
 
