@@ -1,0 +1,1 @@
+CREATE USER 'IUSER_Workout'@'localhost' IDENTIFIED WITH mysql_native_password BY 'W0rk0ut!';
