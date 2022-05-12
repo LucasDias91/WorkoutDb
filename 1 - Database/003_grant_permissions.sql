@@ -1,0 +1,1 @@
+GRANT SELECT, INSERT, UPDATE, LOCK TABLES ON Workout.* TO 'IUSER_Workout'@'localhost';
