@@ -10,8 +10,8 @@ create table Profiles
 (
   ProfileID int AUTO_INCREMENT NOT NULL,
   Profile nvarchar (50) NOT NULL,
-  CreationDate dateTime  NULL,
-  LastEditDate datetime  NULL,
+  Creation_Date dateTime  NULL,
+  Last_Edit_Date datetime  NULL,
   Active bool NOT NULL default true,
   CONSTRAINT PK_Profile PRIMARY KEY (ProfileID)
 );
@@ -21,8 +21,8 @@ delimiter //
 create trigger Insert_Trigger_Profile  BEFORE INSERT on Profiles
 FOR EACH ROW
 BEGIN
-  SET new.CreationDate := (SELECT NOW());
-  SET new.LastEditDate := (SELECT NOW());
+  SET new.Creation_Date := (SELECT NOW());
+  SET new.Last_Edit_Date := (SELECT NOW());
 END
 //
 
@@ -30,7 +30,7 @@ delimiter //
 create trigger Update_Trigger_Profile BEFORE UPDATE on Profiles
 FOR EACH ROW
 BEGIN
-  SET new.LastEditDate := (SELECT NOW());
+  SET new.Last_Edit_Date := (SELECT NOW());
 END
 //
 
